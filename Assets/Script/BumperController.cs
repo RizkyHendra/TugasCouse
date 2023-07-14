@@ -8,11 +8,11 @@ public class BumperController : MonoBehaviour
     public float multiplier;
     public Color color;
 
-    private Renderer renderer;
+    private Renderer rendererMat;
     private Animator animator;
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
+        rendererMat = GetComponent<Renderer>();
         animator = GetComponent<Animator>();
         setColor();
     }
@@ -22,7 +22,7 @@ public class BumperController : MonoBehaviour
         {
             Rigidbody bolaRig = bola.GetComponent<Rigidbody>();
             bolaRig.velocity *= multiplier;
-            renderer.material.color = Color.red;
+            rendererMat.material.color = Color.red;
             animator.SetTrigger("hit");
             Invoke("setColor",0.2f);
         }
@@ -30,6 +30,6 @@ public class BumperController : MonoBehaviour
     }
     private void setColor()
     {
-        renderer.material.color = color;
+        rendererMat.material.color = color;
     }
 }
