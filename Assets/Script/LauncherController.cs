@@ -10,12 +10,14 @@ public class LauncherController : MonoBehaviour
     public float maxTimeHold;
     public float maxForce;
 
-    private Renderer renderer;
     private bool isHold;
+
+    private Vector3 initPos;
 
     private void Start()
     {
         isHold = false;
+        initPos = transform.position;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -47,9 +49,14 @@ public class LauncherController : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
             timeHold += Time.deltaTime;
+            if (timeHold<=maxTimeHold)
+            {
+                transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z - timeHold / 300);
+            }
         }
 
         collider.GetComponent<Rigidbody>().AddForce(Vector3.forward * force);
         isHold = false;
+        transform.position = initPos;
     }
 }
