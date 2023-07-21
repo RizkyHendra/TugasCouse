@@ -25,7 +25,7 @@ public class BallController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Game Over")
+        if (other.tag == "Game Over" || other.tag == "Trap")
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;
             this.transform.position = initPos;

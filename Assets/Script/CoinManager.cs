@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    public int jedaSpawn, maxCoin, jumlahCoin;
+    public int jedaSpawn, maxCoin, coinCount;
     public float initTime;
 
     public GameObject coinPrefab, parentCoin, coinLocation;
@@ -22,13 +22,13 @@ public class CoinManager : MonoBehaviour
 
     private void Update()
     {
-        if (jumlahCoin < maxCoin)
+        if (coinCount < maxCoin)
         {
             initTime += Time.deltaTime;
             if (initTime >= jedaSpawn)
             {
                 spawnCoin();
-                jumlahCoin += 1;
+                coinCount += 1;
             }
             
         }

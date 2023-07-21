@@ -23,7 +23,7 @@ public class CoinController : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
-            CM.GetComponent<CoinManager>().jumlahCoin -= 1;
+            CM.GetComponent<CoinManager>().coinCount -= 1;
 
         }
     }
@@ -32,7 +32,7 @@ public class CoinController : MonoBehaviour
         if (other.tag == "Ball")
         {
             Destroy(this.gameObject);
-            CM.GetComponent<CoinManager>().jumlahCoin -= 1;
+            CM.GetComponent<CoinManager>().coinCount -= 1;
         }
         if(other.tag == "Coin")
         {
